@@ -214,7 +214,8 @@ body.view-mode .lbl{pointer-events:none;}
 <div class="footnote" id="footnote"></div>
 
 <script>
-const API_KEY  = '$2a$10$kix1FMxchjVWxdChTO6AIe094B4PzGBNrqRoRnIB/FXf2UtVrHK2m';
+const API_KEY  = '$2a$10$kix1FMxchjVWxdChTO6AIe094B4PzGBNrqRoRnIB/FXF2UtVrHK2m';
+const ACCESS_KEY = '$2a$10$ZobnZ8QXVS1D4TWxoIifDOw0e7R.juXnfQvsgwn5b64x4cFFFsZ1W';
 const BIN_ID   = '69e6f658aaba8821971ef627';
 const BASE     = 'https://api.jsonbin.io/v3';
 const POLL_MS  = 30000;
@@ -293,7 +294,7 @@ function updateFootnote(){
 async function loadData(){
   setStatus('saving','Connecting…');
   try{
-    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:{'X-Master-Key':API_KEY}});
+    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:{'X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY}});
     if(!r.ok) throw new Error();
     const j=await r.json();
     data=j.record; if(!data?.columns) data=DEFAULT;
@@ -318,7 +319,7 @@ async function refreshData(){
 async function fetchRemote(){
   if(!binId) return null;
   try{
-    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:{'X-Master-Key':API_KEY}});
+    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:{'X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY}});
     if(!r.ok) return null;
     const j=await r.json();
     return {ver:j.metadata?.version||0, data:j.record};
@@ -370,7 +371,7 @@ async function saveData(){
     collectFromDOM();
     const r=await fetch(`${BASE}/b/${binId}`,{
       method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':API_KEY},
+      headers:{'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY},
       body:JSON.stringify(data)
     });
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -394,7 +395,7 @@ async function forceSave(){
   collectFromDOM();
   try{
     const r=await fetch(`${BASE}/b/${binId}`,{method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':API_KEY},
+      headers:{'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY},
       body:JSON.stringify(data)});
     if(!r.ok) throw new Error();
     const j=await r.json();
