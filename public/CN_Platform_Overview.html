@@ -502,7 +502,7 @@ function renderCfgBar(sec, si, el){
 }
 
 function renderThead(sec, si, el){
-  let h=`<tr><th class="lc"></th><th class="lc-label">—</th>`;
+  let h=`<tr><th class="lc-label">—</th>`;
   sec.columns.forEach(col=>{
     h+=`<th style="border-top:3px solid ${col.color}">
       <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${col.color};margin-right:6px;vertical-align:middle;"></span>${escHtml(col.label)}
@@ -517,7 +517,6 @@ function renderTbody(sec, si, el){
   let h='';
   sec.rows.forEach((row,ri)=>{
     h+=`<tr data-ri="${ri}" draggable="${ed}">
-      <td class="lc"><span class="row-num">${ri+1}</span></td>
       <td class="lc-label">
         <div class="lw">
           <span class="handle" draggable="false">≡</span>
@@ -532,7 +531,7 @@ function renderTbody(sec, si, el){
       <button class="btn btn-icon btn-danger-ghost btn-sm del-btn" onclick="deleteRow(${si},${ri})" title="Delete row">✕</button>
     </td></tr>`;
   });
-  h+=`<tr class="add-row-row"><td colspan="${sec.columns.length+3}">
+  h+=`<tr class="add-row-row"><td colspan="${sec.columns.length+2}">
     <button class="add-row-btn" onclick="addRowToSection(${si})">+ Add row</button>
   </td></tr>`;
   el.innerHTML=h;
