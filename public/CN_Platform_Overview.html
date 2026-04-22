@@ -3,105 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CN Platform — Channel Comparison</title>
+<title>CN Platform — Documentation</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-
 :root{
   --bg:#f7f6f3;--surface:#fff;--surface2:#f2f1ed;
   --border:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.15);
   --text:#1a1917;--text-2:#6b6860;--text-3:#9e9b93;
   --danger:#C0392B;--accent:#1a1917;--warning:#e67e22;
 }
-
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:40px 24px 80px;}
 
+/* Header */
 .header{max-width:1040px;margin:0 auto 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .kp-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--text-3);text-transform:uppercase;margin-bottom:6px;}
 h1{font-size:24px;font-weight:500;letter-spacing:-.02em;}
 .header-right{display:flex;gap:8px;align-items:center;}
-
-/* Mode toggle */
 .mode-toggle{display:flex;background:var(--surface2);border-radius:8px;padding:3px;gap:2px;border:1px solid var(--border);}
 .mode-btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:5px 12px;border-radius:6px;cursor:pointer;border:none;background:none;color:var(--text-3);transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
 .mode-btn svg{width:12px;height:12px;flex-shrink:0;}
 .mode-btn.active{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.1);}
-
-/* Version chip */
 .version-chip{font-size:10px;font-family:'DM Mono',monospace;color:var(--text-3);padding:3px 8px;background:var(--surface2);border-radius:20px;border:1px solid var(--border);}
 
-/* Status bar */
+/* Status */
 .status-bar{max-width:1040px;margin:0 auto 16px;display:flex;align-items:center;gap:8px;}
 .sdot{width:7px;height:7px;border-radius:50%;background:#ccc;transition:background .3s;flex-shrink:0;}
-.sdot.ok{background:#27ae60;}
-.sdot.saving{background:var(--warning);animation:blink .8s infinite;}
-.sdot.error{background:var(--danger);}
-.sdot.conflict{background:var(--danger);animation:blink .4s infinite;}
+.sdot.ok{background:#27ae60;} .sdot.saving{background:var(--warning);animation:blink .8s infinite;}
+.sdot.error{background:var(--danger);} .sdot.conflict{background:var(--danger);animation:blink .4s infinite;}
 .stext{font-size:12px;color:var(--text-3);font-family:'DM Mono',monospace;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* Conflict banner */
+/* Banners */
 .conflict-banner{max-width:1040px;margin:0 auto 14px;background:#fff5f5;border:1px solid rgba(192,57,43,.22);border-radius:10px;padding:14px 16px;display:none;gap:12px;}
 .conflict-banner.show{display:flex;}
-.cb-icon{font-size:18px;flex-shrink:0;}
-.cb-title{font-size:13px;font-weight:500;color:var(--danger);margin-bottom:3px;}
-.cb-desc{font-size:12px;color:var(--text-2);margin-bottom:10px;line-height:1.5;}
-.cb-actions{display:flex;gap:6px;}
-
-/* Edit banner */
+.cb-icon{font-size:18px;flex-shrink:0;} .cb-title{font-size:13px;font-weight:500;color:var(--danger);margin-bottom:3px;}
+.cb-desc{font-size:12px;color:var(--text-2);margin-bottom:10px;line-height:1.5;} .cb-actions{display:flex;gap:6px;}
 .edit-banner{max-width:1040px;margin:0 auto 14px;background:#fffdf0;border:1px solid rgba(230,126,34,.22);border-radius:10px;padding:9px 14px;display:none;align-items:center;justify-content:space-between;gap:12px;}
 .edit-banner.show{display:flex;}
 .eb-left{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2);}
 .eb-dot{width:7px;height:7px;border-radius:50%;background:var(--warning);animation:blink .9s infinite;flex-shrink:0;}
 .eb-actions{display:flex;gap:6px;}
 
-/* Config bar */
-.config-bar{max-width:1040px;margin:0 auto 12px;display:none;align-items:center;gap:8px;flex-wrap:wrap;}
-.config-bar.show{display:flex;}
+/* Buttons */
+.btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 13px;border-radius:7px;cursor:pointer;border:1px solid var(--border-strong);background:var(--surface);color:var(--text-2);transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn:hover{background:var(--surface2);color:var(--text);} .btn:disabled{opacity:.5;cursor:not-allowed;}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);} .btn-primary:hover{background:#333;color:#fff;}
+.btn-sm{font-size:11px;padding:4px 9px;border-radius:6px;} .btn-icon{padding:4px 7px;border-radius:5px;}
+.btn-ghost{border-color:transparent;background:none;} .btn-ghost:hover{background:var(--surface2);border-color:var(--border);}
+.btn-danger-ghost{border-color:transparent;background:none;color:var(--danger);} .btn-danger-ghost:hover{background:rgba(192,57,43,.05);}
+
+/* Section container */
+.section{max-width:1040px;margin:0 auto 36px;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:12px;}
+.section-title-wrap{display:flex;align-items:center;gap:10px;}
+.section-title{font-size:16px;font-weight:500;letter-spacing:-.01em;outline:none;}
+.section-drag-handle{cursor:grab;color:var(--text-3);font-size:16px;user-select:none;padding:2px 4px;display:none;}
+.section-drag-handle:active{cursor:grabbing;}
+.section-actions{display:flex;gap:6px;opacity:0;transition:opacity .15s;}
+.section:hover .section-actions{opacity:1;}
+.section-del-btn{display:none;}
+body.edit-mode .section-drag-handle{display:block;}
+body.edit-mode .section-del-btn{display:inline-flex;}
+
+/* Config bar per section */
+.cfg-bar{display:none;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.cfg-bar.show{display:flex;}
 .config-label{font-size:11px;color:var(--text-3);font-family:'DM Mono',monospace;}
 .col-pill{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:4px 8px 4px 11px;border-radius:20px;border:1px solid var(--border-strong);background:var(--surface);}
 .col-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .cpbtn{font-size:10px;color:var(--text-3);cursor:pointer;padding:1px 3px;border-radius:3px;border:none;background:none;}
 .cpbtn:hover{color:var(--text);background:var(--surface2);}
 
-/* Buttons */
-.btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 13px;border-radius:7px;cursor:pointer;border:1px solid var(--border-strong);background:var(--surface);color:var(--text-2);transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
-.btn:hover{background:var(--surface2);color:var(--text);}
-.btn:disabled{opacity:.5;cursor:not-allowed;}
-.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);}
-.btn-primary:hover{background:#333;color:#fff;}
-.btn-sm{font-size:11px;padding:4px 9px;border-radius:6px;}
-.btn-icon{padding:4px 7px;border-radius:5px;}
-.btn-ghost{border-color:transparent;background:none;}
-.btn-ghost:hover{background:var(--surface2);border-color:var(--border);}
-.btn-danger-ghost{border-color:transparent;background:none;color:var(--danger);}
-.btn-danger-ghost:hover{background:rgba(192,57,43,.05);}
-
 /* Table */
-.table-wrap{max-width:1040px;margin:0 auto;border-radius:12px;border:1px solid var(--border);overflow:hidden;background:var(--surface);transition:border-color .2s;}
+.table-wrap{border-radius:12px;border:1px solid var(--border);overflow:hidden;background:var(--surface);transition:border-color .2s;}
 .table-wrap.edit-mode{border-color:rgba(230,126,34,.3);}
 table{width:100%;border-collapse:collapse;table-layout:fixed;}
 thead tr{background:var(--surface2);}
-thead th{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border);font-size:12px;font-weight:500;color:var(--text-2);}
-thead th.lc{width:130px;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;}
+thead th{padding:11px 14px;text-align:left;border-bottom:1px solid var(--border);font-size:12px;font-weight:500;color:var(--text-2);}
+thead th.lc{width:44px;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;}
+thead th.lc-label{width:180px;}
 tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
-tbody tr:last-child{border-bottom:none;}
-tbody tr:hover{background:#fafaf8;}
-tbody tr.dragging{opacity:.35;}
-tbody tr.drag-over td{border-top:2px solid var(--accent);}
+tbody tr:last-child{border-bottom:none;} tbody tr:hover{background:#fafaf8;}
+tbody tr.dragging{opacity:.35;} tbody tr.drag-over td{border-top:2px solid var(--accent);}
 td{padding:0;vertical-align:top;}
-td.lc{background:var(--surface2);padding:10px 14px;vertical-align:middle;}
-.lw{display:flex;align-items:center;gap:6px;}
-.handle{cursor:grab;color:var(--text-3);font-size:13px;padding:2px 3px;user-select:none;display:none;flex-shrink:0;}
+td.lc{background:var(--surface2);padding:0 10px;vertical-align:middle;text-align:center;font-size:11px;color:var(--text-3);font-family:'DM Mono',monospace;width:44px;}
+td.lc-label{background:var(--surface2);padding:10px 14px;vertical-align:top;width:180px;}
+.lw{display:flex;align-items:flex-start;gap:6px;}
+.handle{cursor:grab;color:var(--text-3);font-size:13px;padding:2px 3px;user-select:none;display:none;flex-shrink:0;margin-top:1px;}
 .handle:active{cursor:grabbing;}
-.lbl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);outline:none;}
+.lbl{font-size:12px;font-weight:500;color:var(--text-2);outline:none;line-height:1.5;}
 .cell{padding:10px 14px;min-height:44px;font-size:12px;color:var(--text-2);line-height:1.6;white-space:pre-wrap;outline:none;}
 .del-btn{display:none;}
 .add-row-row td{padding:8px 14px;}
 .add-row-btn{font-size:12px;color:var(--text-3);background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:'DM Sans',sans-serif;}
 .add-row-btn:hover{color:var(--text);}
+
+/* Row number */
+.row-num{font-size:11px;color:var(--text-3);font-family:'DM Mono',monospace;min-width:16px;text-align:right;}
 
 /* Edit mode overrides */
 body.edit-mode .handle{display:block;}
@@ -113,22 +112,31 @@ body.edit-mode .cell:hover{background:rgba(0,0,0,.02);}
 body.edit-mode .cell:focus{background:#fffef0;outline:2px solid rgba(230,126,34,.3);outline-offset:-2px;}
 body.edit-mode .cell[data-ph]:empty::before{content:attr(data-ph);color:var(--text-3);font-style:italic;}
 body.edit-mode .lbl:focus{outline:2px solid rgba(230,126,34,.3);outline-offset:2px;border-radius:3px;background:var(--surface);}
+body.edit-mode .section-title:focus{outline:2px solid rgba(230,126,34,.3);outline-offset:4px;border-radius:4px;}
 body.view-mode .cell{pointer-events:none;cursor:default;}
 body.view-mode .lbl{pointer-events:none;}
+body.view-mode .section-title{pointer-events:none;}
+
+/* Add section button */
+.add-section-wrap{max-width:1040px;margin:0 auto 40px;display:none;}
+.add-section-wrap.show{display:block;}
+.add-section-btn{width:100%;padding:12px;border:1.5px dashed var(--border-strong);border-radius:12px;background:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-3);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .15s;}
+.add-section-btn:hover{background:var(--surface);color:var(--text);border-color:var(--accent);}
 
 /* Toast */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--accent);color:#fff;font-size:12px;font-family:'DM Mono',monospace;padding:10px 15px;border-radius:8px;opacity:0;transform:translateY(6px);transition:all .2s;pointer-events:none;z-index:999;max-width:260px;line-height:1.4;}
-.toast.show{opacity:1;transform:translateY(0);}
-.toast.err{background:var(--danger);}
+.toast.show{opacity:1;transform:translateY(0);} .toast.err{background:var(--danger);}
 
-/* Modal */
+/* Modals */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:100;align-items:center;justify-content:center;}
 .modal-bg.open{display:flex;}
-.modal{background:var(--surface);border-radius:14px;padding:26px;width:340px;max-width:92vw;}
+.modal{background:var(--surface);border-radius:14px;padding:26px;width:360px;max-width:92vw;}
 .modal h3{font-size:15px;font-weight:500;margin-bottom:14px;}
-.modal input{width:100%;font-family:'DM Sans',sans-serif;font-size:14px;padding:9px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface2);color:var(--text);outline:none;}
-.modal input:focus{border-color:rgba(230,126,34,.5);}
+.modal input,.modal textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;padding:9px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface2);color:var(--text);outline:none;resize:vertical;}
+.modal input:focus,.modal textarea:focus{border-color:rgba(230,126,34,.5);}
 .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;}
+.modal label{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:5px;margin-top:12px;}
+.modal label:first-of-type{margin-top:0;}
 
 .footnote{max-width:1040px;margin:22px auto 0;font-size:11px;color:var(--text-3);font-family:'DM Mono',monospace;}
 </style>
@@ -138,7 +146,7 @@ body.view-mode .lbl{pointer-events:none;}
 <div class="header">
   <div>
     <div class="kp-label">King Power · CN Platform</div>
-    <h1>Channel Comparison</h1>
+    <h1>Platform Documentation</h1>
   </div>
   <div class="header-right">
     <span class="version-chip" id="vchip">v–</span>
@@ -160,7 +168,6 @@ body.view-mode .lbl{pointer-events:none;}
   <span class="stext" id="stext">Loading…</span>
 </div>
 
-<!-- Conflict banner -->
 <div class="conflict-banner" id="cbanner">
   <div class="cb-icon">⚠</div>
   <div style="flex:1">
@@ -173,39 +180,44 @@ body.view-mode .lbl{pointer-events:none;}
   </div>
 </div>
 
-<!-- Edit mode banner -->
 <div class="edit-banner" id="ebanner">
-  <div class="eb-left">
-    <span class="eb-dot"></span>
-    <span id="ebtext">Editing — changes auto-save after 2s</span>
-  </div>
+  <div class="eb-left"><span class="eb-dot"></span><span id="ebtext">Editing — changes auto-save after 2s</span></div>
   <div class="eb-actions">
-    <button class="btn btn-sm btn-ghost" onclick="addColumn()">+ Column</button>
     <button class="btn btn-sm btn-ghost" onclick="refreshData()">↻ Refresh</button>
     <button class="btn btn-sm btn-primary" id="savebtn" onclick="saveData()">Save now</button>
   </div>
 </div>
 
-<!-- Config bar -->
-<div class="config-bar" id="cfgbar">
-  <span class="config-label">Columns:</span>
+<div id="sections-container"></div>
+
+<div class="add-section-wrap" id="add-section-wrap">
+  <button class="add-section-btn" onclick="openNewTableModal()">+ Add new table</button>
 </div>
 
-<div class="table-wrap" id="twrap">
-  <table>
-    <thead id="thead"></thead>
-    <tbody id="tbody"></tbody>
-  </table>
-</div>
-
-<!-- Rename modal -->
+<!-- Rename column modal -->
 <div class="modal-bg" id="rmodal">
   <div class="modal">
     <h3>Rename column</h3>
+    <label>Column name</label>
     <input type="text" id="rinput" placeholder="Column name"/>
     <div class="modal-actions">
-      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn" onclick="closeModal('rmodal')">Cancel</button>
       <button class="btn btn-primary" onclick="confirmRename()">Rename</button>
+    </div>
+  </div>
+</div>
+
+<!-- New table modal -->
+<div class="modal-bg" id="ntmodal">
+  <div class="modal">
+    <h3>New table</h3>
+    <label>Table title</label>
+    <input type="text" id="nt-title" placeholder="e.g. Vendor list"/>
+    <label>Columns (comma-separated)</label>
+    <input type="text" id="nt-cols" placeholder="e.g. Vendor, Scope of Work"/>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('ntmodal')">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmNewTable()">Create</button>
     </div>
   </div>
 </div>
@@ -214,90 +226,116 @@ body.view-mode .lbl{pointer-events:none;}
 <div class="footnote" id="footnote"></div>
 
 <script>
-const API_KEY  = '$2a$10$kix1FMxchjVWxdChTO6AIe094B4PzGBNrqRoRnIB/FXf2UtVrHK2m';
+const API_KEY    = '$2a$10$kix1FMxchjVWxdChTO6AIe094B4PzGBNrqRoRnIB/FXf2UtVrHK2m';
 const ACCESS_KEY = '$2a$10$ZobnZ8QXVS1D4TWxoIifDOw0e7R.juXnfQvsgwn5b64x4cFFFsZ1W';
-const BIN_ID   = '69e6f658aaba8821971ef627';
-const BASE     = 'https://api.jsonbin.io/v3';
-const POLL_MS  = 30000;
+const BIN_ID     = '69e6f658aaba8821971ef627';
+const BASE       = 'https://api.jsonbin.io/v3';
+const POLL_MS    = 30000;
 
 let binId = BIN_ID, data = null;
 let localVer = 0, remoteVer = 0;
 let saveTimer = null, pollTimer = null;
 let isSaving = false, hasChanges = false;
 let mode = 'view';
-let renameIdx = null, dragSrc = null;
+let renameCtx = null; // {sIdx, cIdx}
+let dragSrcRow = null, dragSrcSection = null;
+let toastT = null;
+
+const COLORS = ['#BA7517','#0F6E56','#185FA5','#888780','#534AB7','#993C1D','#7B3F00','#1A5276'];
 
 const DEFAULT = {
-  columns:[
-    {id:'kpcn',   label:'KP-CN',                   color:'#BA7517'},
-    {id:'thtdm',  label:'Taihaitao TH Direct Mail', color:'#0F6E56'},
-    {id:'bonded', label:'Taihaitao Bonded',          color:'#185FA5'},
-  ],
-  rows:[
-    {label:'Target',            cells:['Chinese tourists in Thailand','General customers + Daigou in China','General customers in China']},
-    {label:'Product',           cells:['Duty-free + duty-paid / local Thai','TH local products','TH local products']},
-    {label:'Channels',          cells:['Web, app, WeChat, Alipay','Taihaitao owned, DMALL, JD','Taihaitao owned, DMALL (JD N/A)']},
-    {label:'Stock location',    cells:['KP TH warehouse','KP TH warehouse','Bonded warehouse in China']},
-    {label:'Stock sync',        cells:['KP ERP → platform server (CN)','KP ERP → Taihaitao server','Pricing from KP ERP; stock from bonded WH integration']},
-    {label:'Logistics',         cells:['Airport pick-up counter','SF Express direct mail to China','Platform logistics / DMALL own logistics']},
-    {label:'Customs',           cells:['—','Export clearance before SF Express','Taihaitao: CBEC importer / DMALL: own CBEC license']},
-    {label:'Payment',           cells:['TBD','TBD','Taihaitao: cross-border payment co. / DMALL: self-managed']},
-    {label:'Daigou',            cells:['—','Yes (Taihaitao owned channels)','No']},
-    {label:'Key differentiator',cells:['Tourist channel, duty-free access','Ships from TH, broadest customer types','Pre-positioned stock, faster CN delivery']},
+  sections: [
+    {
+      id: 's1', title: 'Channel Comparison',
+      columns: [
+        {id:'kpcn',   label:'KP-CN',                   color:'#BA7517'},
+        {id:'thtdm',  label:'Taihaitao TH Direct Mail', color:'#0F6E56'},
+        {id:'bonded', label:'Taihaitao Bonded',          color:'#185FA5'},
+      ],
+      rows: [
+        {label:'Target',            cells:['Chinese tourists in Thailand','General customers + Daigou in China','General customers in China']},
+        {label:'Product',           cells:['Duty-free + duty-paid / local Thai','TH local products','TH local products']},
+        {label:'Channels',          cells:['Web, app, WeChat, Alipay','Taihaitao owned, DMALL, JD','Taihaitao owned, DMALL (JD N/A)']},
+        {label:'Stock location',    cells:['KP TH warehouse','KP TH warehouse','Bonded warehouse in China']},
+        {label:'Stock sync',        cells:['KP ERP → platform server (CN)','KP ERP → Taihaitao server','Pricing from KP ERP; stock from bonded WH integration']},
+        {label:'Logistics',         cells:['Airport pick-up counter','SF Express direct mail to China','Platform logistics / DMALL own logistics']},
+        {label:'Customs',           cells:['—','Export clearance before SF Express','Taihaitao: CBEC importer / DMALL: own CBEC license']},
+        {label:'Payment',           cells:['TBD','TBD','Taihaitao: cross-border payment co. / DMALL: self-managed']},
+        {label:'Daigou',            cells:['—','Yes (Taihaitao owned channels)','No']},
+        {label:'Key differentiator',cells:['Tourist channel, duty-free access','Ships from TH, broadest customer types','Pre-positioned stock, faster CN delivery']},
+      ]
+    },
+    {
+      id: 's2', title: 'Vendor & Scope of Work',
+      columns: [
+        {id:'vendor', label:'Vendor', color:'#534AB7'},
+        {id:'scope',  label:'Scope of Work', color:'#0F6E56'},
+      ],
+      rows: [
+        {label:'1', cells:['Beijing Regina\'s Gems Tech Co., Ltd (Jessica)','1. Website development and maintenance, all technical related issues\n2. KP-CN store operations and customer service\n3. JD store operations and customer service']},
+        {label:'2', cells:['Shanghai Jiliang Media Co., LTD.','1. DMALL store operations and customer service\n2. Content creation']},
+        {label:'3', cells:['KEX Express (Thailand) Public Company Limited','1. Cross-border delivery (TH to CN)\n2. Home / hotel delivery in TH']},
+        {label:'4', cells:['Zheng Zheng (moving to MyMyPanda)','1. Bonded warehouse management for Taihaitao and DMALL\n- Custom clearance\n- Bonded warehouse stock management\n- Last mile delivery']},
+        {label:'5', cells:['V-Click Technology Co., Ltd.','1. Paid ads (Tencent)']},
+        {label:'6', cells:['Traxasia Co., Ltd.','1. KOL review']},
+      ]
+    }
   ]
 };
 
-// ── Status ──────────────────────────────────────
-const $sdot = ()=>document.getElementById('sdot');
-const $stext= ()=>document.getElementById('stext');
-function setStatus(s,msg){ $sdot().className='sdot '+s; $stext().textContent=msg; }
+// ── Status ──────────────────────────────────────────
+function setStatus(s,msg){ document.getElementById('sdot').className='sdot '+s; document.getElementById('stext').textContent=msg; }
 function setVchip(v){ document.getElementById('vchip').textContent=v?'v'+v:'v–'; }
 
-// ── Mode ─────────────────────────────────────────
+// ── Mode ────────────────────────────────────────────
 function setMode(m){
-  const leaving = mode;
-  if(leaving==='edit' && hasChanges && m==='view'){
+  const leaving=mode;
+  if(leaving==='edit'&&hasChanges&&m==='view'){
     if(confirm('You have unsaved changes. Save before switching to view?')){
-      saveData().then(()=>{ _applyMode(m); });
-      return;
-    } else {
-      hasChanges=false; clearTimeout(saveTimer);
-      setStatus('ok','Changes discarded');
-    }
+      saveData().then(()=>_applyMode(m)); return;
+    } else { hasChanges=false; clearTimeout(saveTimer); setStatus('ok','Changes discarded'); }
   }
   _applyMode(m);
 }
-
 function _applyMode(m){
   mode=m;
-  document.body.className = m+'-mode';
+  document.body.className=m+'-mode';
   document.getElementById('btn-view').classList.toggle('active',m==='view');
   document.getElementById('btn-edit').classList.toggle('active',m==='edit');
   document.getElementById('ebanner').classList.toggle('show',m==='edit');
-  document.getElementById('cfgbar').classList.toggle('show',m==='edit');
-  document.getElementById('twrap').classList.toggle('edit-mode',m==='edit');
-  // toggle contenteditable on all cells
-  const editable = m==='edit';
-  document.querySelectorAll('.cell').forEach(el=>el.contentEditable=editable);
-  document.querySelectorAll('.lbl').forEach(el=>el.contentEditable=editable);
+  document.getElementById('add-section-wrap').classList.toggle('show',m==='edit');
+  document.querySelectorAll('.table-wrap').forEach(tw=>tw.classList.toggle('edit-mode',m==='edit'));
+  document.querySelectorAll('.cfg-bar').forEach(cb=>cb.classList.toggle('show',m==='edit'));
+  // contenteditable
+  const ed=m==='edit';
+  document.querySelectorAll('.cell').forEach(el=>el.contentEditable=ed);
+  document.querySelectorAll('.lbl').forEach(el=>el.contentEditable=ed);
+  document.querySelectorAll('.section-title').forEach(el=>el.contentEditable=ed);
   if(m==='edit') startPolling(); else stopPolling();
   updateFootnote();
 }
-
 function updateFootnote(){
   document.getElementById('footnote').textContent = mode==='edit'
-    ? 'Click cell to edit · Drag ≡ to reorder · Auto-save 2s after changes · Version conflict detection enabled'
-    : 'Read-only · Switch to Edit mode to make changes';
+    ? 'Click any cell to edit · Drag ≡ to reorder rows · Auto-save 2s · Conflict detection enabled'
+    : 'Read-only — switch to Edit mode to make changes';
 }
 
-// ── JSONBin ──────────────────────────────────────
+// ── JSONBin ─────────────────────────────────────────
+const HEADERS_READ  = {'X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY};
+const HEADERS_WRITE = {'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY};
+
 async function loadData(){
   setStatus('saving','Connecting…');
   try{
-    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:{'X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY}});
-    if(!r.ok) throw new Error();
+    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:HEADERS_READ});
+    if(!r.ok) throw new Error('HTTP '+r.status);
     const j=await r.json();
-    data=j.record; if(!data?.columns) data=DEFAULT;
+    data=j.record;
+    // migrate old format (single table) to new multi-section format
+    if(data&&data.columns&&!data.sections){
+      data={sections:[{id:'s1',title:'Channel Comparison',columns:data.columns,rows:data.rows}]};
+    }
+    if(!data?.sections) data=DEFAULT;
     localVer=remoteVer=j.metadata?.version||1;
     renderAll(); setVchip(localVer);
     setStatus('ok',`Loaded · v${localVer} · ${new Date().toLocaleTimeString()}`);
@@ -308,40 +346,32 @@ async function loadData(){
   }
   updateFootnote();
 }
-
 async function refreshData(){
-  if(hasChanges && !confirm('Refresh will discard unsaved changes. Continue?')) return;
-  clearTimeout(saveTimer); hasChanges=false;
-  await loadData();
+  if(hasChanges&&!confirm('Refresh will discard unsaved changes. Continue?')) return;
+  clearTimeout(saveTimer); hasChanges=false; await loadData();
 }
-
-// ── Version check ─────────────────────────────────
 async function fetchRemote(){
   if(!binId) return null;
   try{
-    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:{'X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY}});
+    const r=await fetch(`${BASE}/b/${binId}/latest`,{headers:HEADERS_READ});
     if(!r.ok) return null;
     const j=await r.json();
-    return {ver:j.metadata?.version||0, data:j.record};
+    return {ver:j.metadata?.version||0,data:j.record};
   }catch(e){return null;}
 }
 
+// ── Conflict ────────────────────────────────────────
 function showConflict(theirVer){
   remoteVer=theirVer;
-  document.getElementById('cdesc').textContent =
-    `Remote is at v${theirVer}, your session is based on v${localVer}. Choose how to proceed.`;
+  document.getElementById('cdesc').textContent=`Remote is at v${theirVer}, your session is based on v${localVer}.`;
   document.getElementById('cbanner').classList.add('show');
   setStatus('conflict',`Conflict — remote v${theirVer}, local v${localVer}`);
 }
 function hideConflict(){ document.getElementById('cbanner').classList.remove('show'); }
-
 async function conflictKeepMine(){ hideConflict(); await forceSave(); }
-async function conflictLoadTheirs(){
-  hideConflict(); clearTimeout(saveTimer); hasChanges=false; await loadData();
-  showToast('Loaded latest remote version');
-}
+async function conflictLoadTheirs(){ hideConflict(); clearTimeout(saveTimer); hasChanges=false; await loadData(); showToast('Loaded latest version'); }
 
-// ── Save ──────────────────────────────────────────
+// ── Save ────────────────────────────────────────────
 function scheduleSave(){
   if(mode!=='edit') return;
   hasChanges=true; clearTimeout(saveTimer);
@@ -349,54 +379,33 @@ function scheduleSave(){
   document.getElementById('ebtext').textContent='Editing — unsaved changes';
   saveTimer=setTimeout(saveData,2000);
 }
-
 async function saveData(){
-  if(!binId){ showToast('No bin connected','err'); return; }
+  if(!binId){showToast('No bin connected','err');return;}
   if(isSaving) return;
   isSaving=true; clearTimeout(saveTimer);
   const btn=document.getElementById('savebtn');
   btn.disabled=true; btn.textContent='Saving…';
   setStatus('saving','Checking remote version…');
-
   try{
-    // 1. Pre-save version check
     const remote=await fetchRemote();
-    if(remote && remote.ver > localVer){
-      isSaving=false; btn.disabled=false; btn.textContent='Save now';
-      showConflict(remote.ver);
-      return;
-    }
-
-    // 2. Collect and write
+    if(remote&&remote.ver>localVer){ isSaving=false; btn.disabled=false; btn.textContent='Save now'; showConflict(remote.ver); return; }
     collectFromDOM();
-    const r=await fetch(`${BASE}/b/${binId}`,{
-      method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY},
-      body:JSON.stringify(data)
-    });
+    const r=await fetch(`${BASE}/b/${binId}`,{method:'PUT',headers:HEADERS_WRITE,body:JSON.stringify(data)});
     if(!r.ok) throw new Error('HTTP '+r.status);
     const j=await r.json();
     localVer=remoteVer=j.metadata?.version||(localVer+1);
-    hasChanges=false;
-    setVchip(localVer);
+    hasChanges=false; setVchip(localVer);
     setStatus('ok',`Saved · v${localVer} · ${new Date().toLocaleTimeString()}`);
     document.getElementById('ebtext').textContent='Editing — all changes saved';
     showToast(`Saved as v${localVer}`);
-  }catch(e){
-    setStatus('error','Save failed — '+e.message);
-    showToast('Save failed','err');
-  }finally{
-    isSaving=false; btn.disabled=false; btn.textContent='Save now';
-  }
+  }catch(e){ setStatus('error','Save failed — '+e.message); showToast('Save failed','err'); }
+  finally{ isSaving=false; btn.disabled=false; btn.textContent='Save now'; }
 }
-
 async function forceSave(){
   if(!binId) return;
   collectFromDOM();
   try{
-    const r=await fetch(`${BASE}/b/${binId}`,{method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Access-Key':ACCESS_KEY},
-      body:JSON.stringify(data)});
+    const r=await fetch(`${BASE}/b/${binId}`,{method:'PUT',headers:HEADERS_WRITE,body:JSON.stringify(data)});
     if(!r.ok) throw new Error();
     const j=await r.json();
     localVer=remoteVer=j.metadata?.version||(localVer+1);
@@ -405,162 +414,263 @@ async function forceSave(){
   }catch(e){ setStatus('error','Force save failed'); showToast('Force save failed','err'); }
 }
 
-// ── Polling ────────────────────────────────────────
+// ── Polling ──────────────────────────────────────────
 function startPolling(){
   stopPolling();
   pollTimer=setInterval(async()=>{
     if(!hasChanges) return;
     const r=await fetchRemote();
-    if(r && r.ver > localVer){ stopPolling(); showConflict(r.ver); }
-  }, POLL_MS);
+    if(r&&r.ver>localVer){stopPolling();showConflict(r.ver);}
+  },POLL_MS);
 }
 function stopPolling(){ clearInterval(pollTimer); }
 
-// ── Collect DOM → data ─────────────────────────────
+// ── Collect DOM → data ───────────────────────────────
 function collectFromDOM(){
-  const trs=document.querySelectorAll('#tbody tr[data-ri]');
-  data.rows=Array.from(trs).map(tr=>({
-    label:tr.querySelector('.lbl').textContent.trim(),
-    cells:Array.from(tr.querySelectorAll('.cell')).map(c=>c.textContent.trim())
-  }));
-}
-
-// ── Render ─────────────────────────────────────────
-function renderAll(){ renderCfg(); renderHead(); renderBody(); }
-
-function renderCfg(){
-  const bar=document.getElementById('cfgbar');
-  bar.innerHTML='<span class="config-label">Columns:</span>';
-  data.columns.forEach((col,i)=>{
-    const p=document.createElement('div'); p.className='col-pill';
-    p.innerHTML=`<span class="col-dot" style="background:${col.color}"></span>
-      <span>${col.label}</span>
-      <button class="cpbtn" onclick="openRename(${i})">✎</button>
-      ${data.columns.length>1?`<button class="cpbtn" style="color:var(--danger)" onclick="removeColumn(${i})">✕</button>`:''}`;
-    bar.appendChild(p);
+  document.querySelectorAll('.section[data-sidx]').forEach(sec=>{
+    const si=parseInt(sec.dataset.sidx);
+    if(!data.sections[si]) return;
+    // title
+    const titleEl=sec.querySelector('.section-title');
+    if(titleEl) data.sections[si].title=titleEl.textContent.trim();
+    // rows
+    const trs=sec.querySelectorAll('tr[data-ri]');
+    data.sections[si].rows=Array.from(trs).map(tr=>({
+      label:tr.querySelector('.lbl').textContent.trim(),
+      cells:Array.from(tr.querySelectorAll('.cell')).map(c=>c.textContent.trim())
+    }));
   });
 }
 
-function renderHead(){
-  const thead=document.getElementById('thead');
-  let h=`<tr><th class="lc"></th>`;
-  data.columns.forEach(col=>{
+// ── Render all ────────────────────────────────────────
+function renderAll(){
+  const container=document.getElementById('sections-container');
+  container.innerHTML='';
+  data.sections.forEach((sec,si)=>{ container.appendChild(buildSection(sec,si)); });
+  if(mode==='edit'){
+    document.querySelectorAll('.table-wrap').forEach(tw=>tw.classList.add('edit-mode'));
+    document.querySelectorAll('.cfg-bar').forEach(cb=>cb.classList.add('show'));
+    document.querySelectorAll('.cell').forEach(el=>el.contentEditable=true);
+    document.querySelectorAll('.lbl').forEach(el=>el.contentEditable=true);
+    document.querySelectorAll('.section-title').forEach(el=>el.contentEditable=true);
+  }
+}
+
+function buildSection(sec, si){
+  const div=document.createElement('div');
+  div.className='section'; div.dataset.sidx=si;
+
+  // Section header
+  div.innerHTML=`
+    <div class="section-header">
+      <div class="section-title-wrap">
+        <span class="section-drag-handle" title="Drag to reorder section">⠿</span>
+        <span class="section-title" contenteditable="${mode==='edit'}"
+          onblur="scheduleSave()" onkeydown="if(event.key==='Enter'){event.preventDefault();event.target.blur();}"
+        >${escHtml(sec.title)}</span>
+      </div>
+      <div class="section-actions">
+        <button class="btn btn-sm btn-ghost" onclick="addColumnToSection(${si})">+ Column</button>
+        <button class="btn btn-sm btn-ghost" onclick="addRowToSection(${si})">+ Row</button>
+        <button class="btn btn-sm btn-danger-ghost section-del-btn" onclick="deleteSection(${si})" title="Delete table">Delete table</button>
+      </div>
+    </div>
+    <div class="cfg-bar ${mode==='edit'?'show':''}" id="cfg-${si}"></div>
+    <div class="table-wrap ${mode==='edit'?'edit-mode':''}">
+      <table>
+        <thead id="thead-${si}"></thead>
+        <tbody id="tbody-${si}"></tbody>
+      </table>
+    </div>`;
+
+  renderCfgBar(sec, si, div.querySelector(`#cfg-${si}`));
+  renderThead(sec, si, div.querySelector(`#thead-${si}`));
+  renderTbody(sec, si, div.querySelector(`#tbody-${si}`));
+  return div;
+}
+
+function renderCfgBar(sec, si, el){
+  el.innerHTML='<span class="config-label">Columns:</span>';
+  sec.columns.forEach((col,ci)=>{
+    const p=document.createElement('div'); p.className='col-pill';
+    p.innerHTML=`<span class="col-dot" style="background:${col.color}"></span>
+      <span>${escHtml(col.label)}</span>
+      <button class="cpbtn" onclick="openRename(${si},${ci})" title="Rename">✎</button>
+      ${sec.columns.length>1?`<button class="cpbtn" style="color:var(--danger)" onclick="removeColumn(${si},${ci})" title="Remove">✕</button>`:''}`;
+    el.appendChild(p);
+  });
+}
+
+function renderThead(sec, si, el){
+  let h=`<tr><th class="lc"></th><th class="lc-label">—</th>`;
+  sec.columns.forEach(col=>{
     h+=`<th style="border-top:3px solid ${col.color}">
-      <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${col.color};margin-right:6px;vertical-align:middle;"></span>${col.label}
+      <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${col.color};margin-right:6px;vertical-align:middle;"></span>${escHtml(col.label)}
     </th>`;
   });
   h+=`<th style="width:40px;border-top:3px solid transparent;"></th></tr>`;
-  thead.innerHTML=h;
+  el.innerHTML=h;
 }
 
-function renderBody(){
-  const tbody=document.getElementById('tbody');
+function renderTbody(sec, si, el){
   const ed=mode==='edit';
   let h='';
-  data.rows.forEach((row,ri)=>{
+  sec.rows.forEach((row,ri)=>{
     h+=`<tr data-ri="${ri}" draggable="${ed}">
-      <td class="lc">
+      <td class="lc"><span class="row-num">${ri+1}</span></td>
+      <td class="lc-label">
         <div class="lw">
           <span class="handle" draggable="false">≡</span>
-          <span class="lbl" contenteditable="${ed}" onblur="scheduleSave()" onkeydown="noEnter(event,true)">${row.label}</span>
+          <span class="lbl" contenteditable="${ed}" onblur="scheduleSave()" onkeydown="if(event.key==='Enter'){event.preventDefault();event.target.blur();}">${escHtml(row.label)}</span>
         </div>
       </td>`;
-    data.columns.forEach((col,ci)=>{
+    sec.columns.forEach((col,ci)=>{
       const v=row.cells[ci]??'';
-      h+=`<td><div class="cell" contenteditable="${ed}" data-ph="—" onblur="scheduleSave()" onkeydown="noEnter(event)">${v}</div></td>`;
+      h+=`<td><div class="cell" contenteditable="${ed}" data-ph="—" onblur="scheduleSave()" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();event.target.blur();}">${escHtml(v)}</div></td>`;
     });
     h+=`<td style="width:40px;padding:0 6px;vertical-align:middle;">
-      <button class="btn btn-icon btn-danger-ghost btn-sm del-btn" onclick="deleteRow(${ri})" title="Delete row">✕</button>
+      <button class="btn btn-icon btn-danger-ghost btn-sm del-btn" onclick="deleteRow(${si},${ri})" title="Delete row">✕</button>
     </td></tr>`;
   });
-  h+=`<tr class="add-row-row"><td colspan="${data.columns.length+2}">
-    <button class="add-row-btn" onclick="addRow()">+ Add row</button>
+  h+=`<tr class="add-row-row"><td colspan="${sec.columns.length+3}">
+    <button class="add-row-btn" onclick="addRowToSection(${si})">+ Add row</button>
   </td></tr>`;
-  tbody.innerHTML=h;
-  if(ed) attachDrag();
+  el.innerHTML=h;
+  attachDrag(sec, si, el);
 }
 
-function noEnter(e,isLabel=false){ if(e.key==='Enter'&&(!isLabel||true)){e.preventDefault();e.target.blur();} }
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-// ── Row ops ────────────────────────────────────────
-function addRow(){
+// ── Section ops ───────────────────────────────────────
+function deleteSection(si){
+  if(!confirm(`Delete table "${data.sections[si].title}"? This cannot be undone.`)) return;
   collectFromDOM();
-  data.rows.push({label:'New row',cells:data.columns.map(()=>'')});
-  renderBody(); scheduleSave();
-  const last=document.querySelectorAll('#tbody tr[data-ri]');
-  if(last.length){ const l=last[last.length-1].querySelector('.lbl'); if(l){l.focus();selAll(l);} }
-}
-function deleteRow(i){
-  if(!confirm('Delete this row?')) return;
-  collectFromDOM(); data.rows.splice(i,1); renderBody(); scheduleSave();
-}
-function selAll(el){
-  const r=document.createRange(); r.selectNodeContents(el);
-  const s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
-}
-
-// ── Column ops ─────────────────────────────────────
-function addColumn(){
-  collectFromDOM();
-  const colors=['#BA7517','#0F6E56','#185FA5','#888780','#534AB7','#993C1D'];
-  const color=colors[data.columns.length%colors.length];
-  data.columns.push({id:'col'+Date.now(),label:'New column',color});
-  data.rows.forEach(r=>r.cells.push(''));
-  renderAll(); scheduleSave(); openRename(data.columns.length-1);
-}
-function removeColumn(i){
-  if(!confirm(`Remove column "${data.columns[i].label}"?`)) return;
-  collectFromDOM(); data.columns.splice(i,1);
-  data.rows.forEach(r=>r.cells.splice(i,1));
+  data.sections.splice(si,1);
   renderAll(); scheduleSave();
 }
 
-// ── Rename modal ────────────────────────────────────
-function openRename(i){
-  renameIdx=i;
-  document.getElementById('rinput').value=data.columns[i].label;
+function openNewTableModal(){
+  document.getElementById('nt-title').value='';
+  document.getElementById('nt-cols').value='';
+  document.getElementById('ntmodal').classList.add('open');
+  setTimeout(()=>document.getElementById('nt-title').focus(),50);
+}
+function confirmNewTable(){
+  const title=document.getElementById('nt-title').value.trim();
+  const colsRaw=document.getElementById('nt-cols').value.trim();
+  if(!title){alert('Please enter a title');return;}
+  const colLabels=colsRaw?colsRaw.split(',').map(s=>s.trim()).filter(Boolean):['Column 1'];
+  const columns=colLabels.map((label,i)=>({id:'c'+Date.now()+i,label,color:COLORS[i%COLORS.length]}));
+  collectFromDOM();
+  data.sections.push({id:'s'+Date.now(),title,columns,rows:[{label:'1',cells:columns.map(()=>'')}]});
+  closeModal('ntmodal');
+  renderAll(); scheduleSave();
+  // scroll to new section
+  const secs=document.querySelectorAll('.section');
+  if(secs.length) secs[secs.length-1].scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── Row ops ─────────────────────────────────────────
+function addRowToSection(si){
+  collectFromDOM();
+  const sec=data.sections[si];
+  const nextNum=sec.rows.length+1;
+  sec.rows.push({label:String(nextNum),cells:sec.columns.map(()=>'')});
+  const tbody=document.getElementById(`tbody-${si}`);
+  renderTbody(sec,si,tbody);
+  scheduleSave();
+  const trs=tbody.querySelectorAll('tr[data-ri]');
+  const last=trs[trs.length-1];
+  if(last){ const l=last.querySelector('.lbl'); if(l){l.focus();selAll(l);} }
+}
+function deleteRow(si,ri){
+  if(!confirm('Delete this row?')) return;
+  collectFromDOM();
+  data.sections[si].rows.splice(ri,1);
+  const tbody=document.getElementById(`tbody-${si}`);
+  renderTbody(data.sections[si],si,tbody);
+  scheduleSave();
+}
+function selAll(el){ const r=document.createRange();r.selectNodeContents(el);const s=window.getSelection();s.removeAllRanges();s.addRange(r); }
+
+// ── Column ops ───────────────────────────────────────
+function addColumnToSection(si){
+  collectFromDOM();
+  const sec=data.sections[si];
+  const color=COLORS[sec.columns.length%COLORS.length];
+  sec.columns.push({id:'c'+Date.now(),label:'New column',color});
+  sec.rows.forEach(r=>r.cells.push(''));
+  // re-render section
+  const secEl=document.querySelector(`.section[data-sidx="${si}"]`);
+  if(secEl){ secEl.replaceWith(buildSection(sec,si)); }
+  scheduleSave();
+  openRename(si,sec.columns.length-1);
+}
+function removeColumn(si,ci){
+  if(!confirm(`Remove column "${data.sections[si].columns[ci].label}"?`)) return;
+  collectFromDOM();
+  data.sections[si].columns.splice(ci,1);
+  data.sections[si].rows.forEach(r=>r.cells.splice(ci,1));
+  const secEl=document.querySelector(`.section[data-sidx="${si}"]`);
+  if(secEl) secEl.replaceWith(buildSection(data.sections[si],si));
+  scheduleSave();
+}
+
+// ── Rename modal ──────────────────────────────────────
+function openRename(si,ci){
+  renameCtx={si,ci};
+  document.getElementById('rinput').value=data.sections[si].columns[ci].label;
   document.getElementById('rmodal').classList.add('open');
   setTimeout(()=>document.getElementById('rinput').select(),50);
 }
-function closeModal(){ document.getElementById('rmodal').classList.remove('open'); renameIdx=null; }
 function confirmRename(){
-  if(renameIdx===null) return;
+  if(!renameCtx) return;
   const v=document.getElementById('rinput').value.trim(); if(!v) return;
-  data.columns[renameIdx].label=v; closeModal(); renderAll(); scheduleSave();
+  data.sections[renameCtx.si].columns[renameCtx.ci].label=v;
+  closeModal('rmodal');
+  const si=renameCtx.si; renameCtx=null;
+  const secEl=document.querySelector(`.section[data-sidx="${si}"]`);
+  if(secEl) secEl.replaceWith(buildSection(data.sections[si],si));
+  scheduleSave();
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  if(id==='rmodal') renameCtx=null;
 }
 document.getElementById('rinput').addEventListener('keydown',e=>{
-  if(e.key==='Enter') confirmRename(); if(e.key==='Escape') closeModal();
+  if(e.key==='Enter') confirmRename(); if(e.key==='Escape') closeModal('rmodal');
 });
-document.getElementById('rmodal').addEventListener('click',e=>{ if(e.target===e.currentTarget) closeModal(); });
+document.getElementById('rmodal').addEventListener('click',e=>{ if(e.target===e.currentTarget) closeModal('rmodal'); });
+document.getElementById('ntmodal').addEventListener('click',e=>{ if(e.target===e.currentTarget) closeModal('ntmodal'); });
+document.getElementById('nt-title').addEventListener('keydown',e=>{ if(e.key==='Enter') document.getElementById('nt-cols').focus(); });
+document.getElementById('nt-cols').addEventListener('keydown',e=>{ if(e.key==='Enter') confirmNewTable(); if(e.key==='Escape') closeModal('ntmodal'); });
 
-// ── Drag & drop ────────────────────────────────────
-function attachDrag(){
-  document.querySelectorAll('#tbody tr[data-ri]').forEach(tr=>{
-    tr.addEventListener('dragstart',e=>{ dragSrc=tr; tr.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
-    tr.addEventListener('dragend',()=>{ tr.classList.remove('dragging'); document.querySelectorAll('.drag-over').forEach(el=>el.classList.remove('drag-over')); dragSrc=null; });
-    tr.addEventListener('dragover',e=>{ e.preventDefault(); if(tr!==dragSrc){ document.querySelectorAll('.drag-over').forEach(el=>el.classList.remove('drag-over')); tr.classList.add('drag-over'); } });
+// ── Drag & drop rows ──────────────────────────────────
+function attachDrag(sec, si, tbody){
+  tbody.querySelectorAll('tr[data-ri]').forEach(tr=>{
+    tr.addEventListener('dragstart',e=>{ dragSrcRow=tr; dragSrcSection=si; tr.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
+    tr.addEventListener('dragend',()=>{ tr.classList.remove('dragging'); document.querySelectorAll('.drag-over').forEach(el=>el.classList.remove('drag-over')); dragSrcRow=null; });
+    tr.addEventListener('dragover',e=>{ e.preventDefault(); if(tr!==dragSrcRow&&dragSrcSection===si){ document.querySelectorAll('.drag-over').forEach(el=>el.classList.remove('drag-over')); tr.classList.add('drag-over'); } });
     tr.addEventListener('drop',e=>{
-      e.preventDefault(); if(!dragSrc||dragSrc===tr) return;
+      e.preventDefault();
+      if(!dragSrcRow||dragSrcRow===tr||dragSrcSection!==si) return;
       collectFromDOM();
-      const si=parseInt(dragSrc.dataset.ri),ti=parseInt(tr.dataset.ri);
-      const [mv]=data.rows.splice(si,1); data.rows.splice(ti,0,mv);
-      renderBody(); scheduleSave();
+      const srci=parseInt(dragSrcRow.dataset.ri), tgti=parseInt(tr.dataset.ri);
+      const [mv]=data.sections[si].rows.splice(srci,1);
+      data.sections[si].rows.splice(tgti,0,mv);
+      renderTbody(data.sections[si],si,tbody); scheduleSave();
     });
   });
 }
 
-// ── Toast ───────────────────────────────────────────
-let toastT;
+// ── Toast ─────────────────────────────────────────────
 function showToast(msg,type=''){
   const t=document.getElementById('toast');
   t.textContent=msg; t.className='toast show'+(type?' '+type:'');
   clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-// ── Warn on close ────────────────────────────────────
-window.addEventListener('beforeunload',e=>{
-  if(hasChanges&&mode==='edit'){ e.preventDefault(); e.returnValue='Unsaved changes.'; }
-});
+window.addEventListener('beforeunload',e=>{ if(hasChanges&&mode==='edit'){e.preventDefault();e.returnValue='Unsaved changes.';} });
 
 loadData();
 </script>
